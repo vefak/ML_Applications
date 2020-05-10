@@ -66,30 +66,26 @@ from sklearn.metrics import make_scorer
 from sklearn.metrics import roc_curve, auc
 from sklearn.metrics import roc_auc_score
 import matplotlib.pyplot as plt
-rkf = RepeatedKFold(n_splits=5, n_repeats=5, random_state =True)
-params=np.array([0.0001,0.0005,0.001,0.002,0.005,0.01,0.05,0.1,0.5,0.75,1.0,5.0,10.0,50.0,100.0,500.0,1000.0,5000.0,7500.0,10000.0])
-lr = LogisticRegression()
-parameters = {'C': params}
-clf = GridSearchCV(lr, parameters, scoring='roc_auc', cv = rkf,n_jobs=-1)
-scores=clf.fit(X, y)
+
+
+
+from sklearn.neural_network import MLPClassifier
+rkf = RepeatedKFold(n_splits=3, n_repeats=3, random_state =True)
+mlp = MLPClassifier()
+parameters={
+'hidden_layer_sizes': [(10,10,10), (10,10,10,10), (10,10,10,10,10), (10,10,10,10,10,10)],
+'alpha': [0.00001, 0.0001, 0.001, 0.01, 0.1]
+}
+
+clf= GridSearchCV(mlp,param_grid=parameters,scoring='roc_auc',n_jobs=-1,verbose=1,cv=rkf)
+clf.fit(X, y)
+
 result_mean = clf.cv_results_["mean_test_score"]
 print(clf.cv_results_["mean_test_score"])
 print(clf.best_params_)
-
 print("Best parameter = ",clf.best_params_)
 print("Best parameter = ",clf.best_score_)
 
-from matplotlib.ticker import NullFormatter  # useful for `logit` scale
-
-# log
-
-
-plt.plot(params, result_mean,marker='.', label='Logistic')
-
-
-plt.xscale('log')
-plt.title('log')
-plt.grid(True)
 
 
 
