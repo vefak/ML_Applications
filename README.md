@@ -15,6 +15,6 @@ Python version `Python 3.7.6`
 
 Dataset are from UCI Machine Learning database
 
-1. Energy and Efficieny: https://archive.ics.uci.edu/ml/datasets/bank+marketing
-2. Banking: http://archive.ics.uci.edu/ml/datasets/energy+efficiency
+1. Energy and Efficieny: http://archive.ics.uci.edu/ml/datasets/energy+efficiency
+2. Banking: https://archive.ics.uci.edu/ml/datasets/bank+marketing 
 
