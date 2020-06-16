@@ -6,6 +6,9 @@
 * MLPClassifier
 * Random Forest Regression
 * Ridge Regression
+* Mutual Information Score
+* Recursive Feature Elimination
+* k-NN. Elbow and Silhoutte Graphs 
 
 The basic explanation about codes are in related ipynb files.
 
