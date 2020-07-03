@@ -1,6 +1,6 @@
 ### Sample Applications with Some Machine Learning Methods
 
-> This repo consists of various of machine learning application by using scikit-learn library. 
+> This repo consists of various of machine learning applications by using scikit-learn library. 
 
 *Vefak Murat Akman*
 
